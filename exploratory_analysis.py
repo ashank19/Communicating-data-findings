@@ -69,3 +69,40 @@ df_new=df_new.drop(['AirTime','TaxiIn','TaxiOut','Diverted','CarrierDelay','Canc
 # Test
 
 df_new.describe()
+
+# Define:
+
+# Dropping records with null ArrTime as no information can be conveyed also it cannnot be used for analysis.
+
+# Code
+
+df_new.drop(df_new[df_new.ArrTime.isnull()].index,inplace=True)
+
+# Test
+
+sum(df_new.ArrTime.isnull())
+
+# Define:
+
+# Representing the Arrtime,CRSArrTime,DepTime,CRSDepTime columns in hh:mm:ss format.
+
+# Code
+
+# Converting the columns into hh:mm:ss format
+
+s = df_new['CRSArrTime'].astype(int).astype(str).str.zfill(4)
+df_new['arrtime'] = s.str[:2] + ':' + s.str[2:] + ':00'
+df_new['Schduled_Arr'] = pd.to_timedelta(df_new['arrtime'])
+s = df_new['ArrTime'].astype(int).astype(str).str.zfill(4)
+df_new['arrtime'] = s.str[:2] + ':' + s.str[2:] + ':00'
+df_new['Actual_arr'] = pd.to_timedelta(df_new['arrtime'])
+s = df_new['CRSDepTime'].astype(int).astype(str).str.zfill(4)
+df_new['arrtime'] = s.str[:2] + ':' + s.str[2:] + ':00'
+df_new['Schduled_dep'] = pd.to_timedelta(df_new['arrtime'])
+s = df_new['DepTime'].astype(int).astype(str).str.zfill(4)
+df_new['arrtime'] = s.str[:2] + ':' + s.str[2:] + ':00'
+df_new['Actual_dep'] = pd.to_timedelta(df_new['arrtime'])
+
+# Dropping the previous columns
+
+df_new=df_new.drop(['DepTime','arrtime','CRSDepTime','ArrTime','CRSArrTime'],axis=1)

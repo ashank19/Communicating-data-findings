@@ -153,3 +153,15 @@ df_new=df_new.reset_index(drop=True)
 # Test
 
 df_new.query('ActualElapsedTime <=0')
+
+# Define:
+
+# Dropping the cancelled column as the cleaned dataset does not contain any cancelled flight.
+
+# Code
+
+df_new=df_new.drop(['Cancelled'],axis=1)
+
+# Test
+
+df_new.columns

@@ -23,3 +23,7 @@ The scatterplot for distance vs actual elapsed time does depict some sort of lin
 For each of the scatter plot in the multivariate visualisation for distance vs total delay on month basis correlation coefficient has been calculated.The correlation coefficient for each of them is quite close to zero which depicts that there is no relation between diatance and total delay. Also the scatter plot is similar to that of distance vs total delay as a whole depicting that the two features are independent.
 
 At last cluster analysis has been performed for total delay vs distance with initially two clusters.By using elbow method it has been found that seven is optimal number of clusters for the given scatter plot,which been then plotted below.But nothing could be concluded from it.It may be used for machine learning on this dataset.
+
+This is the link for the dataset
+
+https://www.google.com/url?q=http://stat-computing.org/dataexpo/2009/the-data.html&sa=D&ust=1555126089948000

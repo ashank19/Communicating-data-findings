@@ -189,3 +189,10 @@ sb.barplot(data=df_new,x='UniqueCarrier',y='Total_Delay')
 plt.title('Unique Carrier vs Total delay')
 plt.xlabel('Carrier Code')
 plt.ylabel('Count of Delays');
+
+# From the above barplot it clear that PS plane carrier has major contribution the delays followed by CO and AS.
+
+# Violinplot for the same above plot for a better insight.
+
+plt.figure(figsize=[20,20])
+sb.violinplot(data=df_new,x='UniqueCarrier',y='Total_Delay',color=sb.color_palette()[0],inner='quartile');

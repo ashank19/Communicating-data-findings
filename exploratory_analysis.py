@@ -179,3 +179,13 @@ bins=np.arange(0,df_new['Total_Delay'].max()+10,100)
 plt.hist(data=df_new,x='Total_Delay',bins=bins)
 plt.title('Distribution of Total delay')
 plt.xlabel('Delay duration in minutes');
+
+# From the above histogram it is clear that most of the delays are distributed around zero.
+
+# Total Delay vs UniqueCarrier
+
+plt.figure(figsize=[8,5])
+sb.barplot(data=df_new,x='UniqueCarrier',y='Total_Delay')
+plt.title('Unique Carrier vs Total delay')
+plt.xlabel('Carrier Code')
+plt.ylabel('Count of Delays');

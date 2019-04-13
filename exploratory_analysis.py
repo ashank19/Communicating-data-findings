@@ -165,3 +165,17 @@ df_new=df_new.drop(['Cancelled'],axis=1)
 # Test
 
 df_new.columns
+
+# Saving the cleaned data with a new csv file name.
+
+df_new.to_csv('1987_modified.csv')
+
+# Exploratory Analysis
+
+# Plotting the distribution of Total_Delay
+
+plt.figure(figsize=[8,5])
+bins=np.arange(0,df_new['Total_Delay'].max()+10,100)
+plt.hist(data=df_new,x='Total_Delay',bins=bins)
+plt.title('Distribution of Total delay')
+plt.xlabel('Delay duration in minutes');

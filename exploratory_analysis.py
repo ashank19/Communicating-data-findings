@@ -106,3 +106,18 @@ df_new['Actual_dep'] = pd.to_timedelta(df_new['arrtime'])
 # Dropping the previous columns
 
 df_new=df_new.drop(['DepTime','arrtime','CRSDepTime','ArrTime','CRSArrTime'],axis=1)
+
+# Define:
+
+# Converting the DayOfWeek,DayofMonth,Month,FlightNum columns into appropriate type.
+
+# Code
+
+df_new['Month']=df_new['Month'].astype(str)
+df_new['DayofMonth']=df_new['DayofMonth'].astype(str)
+df_new['DayOfWeek']=df_new['DayOfWeek'].astype(str)
+df_new['FlightNum']=df_new['FlightNum'].astype(str)
+
+# Test
+
+df_new.info()

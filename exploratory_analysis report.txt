@@ -1,0 +1,67 @@
+Exploratory Analysis Report
+Data Overview
+The dataset has been chosen from the options provided by Udacity.The U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics (BTS) tracks the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled and diverted flights appears in DOT's monthly Air Travel Consumer Report, published about 30 days after the month's end, as well as in summary tables posted on this website. BTS began collecting details on the causes of flight delays in June 2003. Summary statistics and raw data are made available to the public at the time the Air Travel Consumer Report is released.
+
+The datset used here reports flights in the United States, including carriers, arrival and departure delays,in 1987.
+
+Gathering the data
+Here data has been downloaded from the dataset link provided by Udacity. Data was available year wise, due to memory constraint only one year data has been used for analysis.
+
+After downloading dataset it was in zip format which was extracted manually after that the csv file was assessed as a pandas dataframe.
+
+Assessing the data
+Here first few rows of the dataframe was assessed so as to look for issues which can be easily figured out thereafter descriptive statistics and column info was assessed.
+
+After that issues in the dataset has been listed out below.
+
+Quality issues
+Numerous columns with null values viz. TaxiIn,TaxiOut,TailNum etc.
+Null values in columns of ArrTime.
+Null values in ArrDelay and DepDelay.
+An entire column for representing Year.
+Erroneous datatype of DayOfWeek,DayofMonth,Month,FlightNum columns.
+Tidiness issues
+Improper representation of time in ArrTime,CRSArrTime,DepTime,CRSDepTime columns.
+Cleaning data
+Here each and every issue stated above was resolved through the sequence of define,code and test i.e.
+
+First the issue was clearly stated.
+Error free code required to resolve the issue was written and executed.
+After execution of the code the table was tested so as to ensure that the issue has been resolved and further no new is found.
+This procedure has been followed for every issue.
+
+** The cleaned dataset has also been included in the zipped folder.
+
+Exploratory analysis
+Here different visualisation of matplotlib library function and different function from seaborn has been used so as to draw insights from the given the dataset after it has been cleaned.
+
+Firstly a histogram has been plotted for the total delay using the pyplot function of matplotlib library.From the histogram it is clear that most of the delays are distributed around zero.
+
+A barplot is plotted using barplot function of seaborn library between total delay and unique carrier.Here quantitative variable has been plotted against qualitative variable.From the barplot it clear that PS plane carrier has major contribution the delays foolowed by CO and AS.
+
+Violinplot for the same above plot for a better insight has been plotted using violin plot function from seaborn library.The violin plot clearly indicates that median for each carrier is approximately zero.'CO' carrier has the most no of outliers.
+
+A pie chart depicting which carrier constitutes major proportion in the dataset has been plotted.From above pie chart it is clearly evident that DL carrier has most flights in our dataset and PA(1) the least.
+
+The scatterplot above does not depict any clear relation between distance and total delay as the data points are present as clusters.The correlation coefficient is also calculated,which clearly shows that theere's hardly any correlation between distance and total delay.The majority of delays are clustered between 0 to 3000 miles distance.
+
+The scatterplot for distance vs actual elapsed time does depict some sort of linear relation.The correlation coefficient calculated also has a high value of 0.97 which shows that there's strong positive correlation between distance and actual elapsed time.
+
+Regression analysis has been performed seeing the high value of correlation coefficient and the line of best fit has been plotted using the coefficients and the slope.
+
+The scatterplot does not depict any clear relation between distance and arrival delay as the data points are present as clusters.The correlation coefficient is also calculated,which clearly shows that theere's hardly any correlation between distance and total delay.Also the scatter plot is identical to that of distance vs total delay.
+
+The scatterplot does not depict any clear relation between distance and departure delay as the data points are present as clusters.The correlation coefficient is also calculated which close to zero,which clearly shows that there's hardly any correlation between distance and total delay.The scatter plot is identical to that of distance vs total delay.
+
+For each of the scatter plot in the multivariate visualisation for distance vs total delay on month basis correlation coefficient has been calculated.The correlation coefficient for each of them is quite close to zero which depicts that there is no relation between diatance and total delay.
+
+In the barplot distribution for unique carrier vs total delay on monthly basis it has been found that most of the delays in the month of October and November are of flights belonging to PS.Only in the month of December CO carrier has the majority of delays.Also one interesting fact that the out of the three months Month 11 i.e. November has the most number of delays.
+
+For each of the scatter plot in the multivariate visualisation for distance vs total delay on day of week basis correlation coefficient has been calculated.The correlation coefficient for each of them is quite close to zero which depicts that there is no relation between distance and total delay.
+
+At last cluster analysis has been performed for total delay vs distance with initially two clusters.By using elbow method it has been found that seven is optimal number of clusters for the given scatter plot,which been then plotted below.
+
+Websites referred
+https://stackoverflow.com/
+
+https://pandas.pydata.org/

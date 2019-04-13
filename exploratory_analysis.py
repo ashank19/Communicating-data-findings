@@ -121,3 +121,35 @@ df_new['FlightNum']=df_new['FlightNum'].astype(str)
 # Test
 
 df_new.info()
+
+# Define:
+
+# As already conveyed in the beginning of notebook that only 1987 year dataset has been taken into account due to memory conctraint, so dropping the year column.
+
+# Code
+
+df_new=df_new.drop(['Year'],axis=1)
+
+# Test
+
+df_new.info()
+
+# Combining the two delays arrival delay and departure delay columns into a single column total delay.
+
+df_new['Total_Delay']=df_new['ArrDelay']+df_new['DepDelay']
+
+# Define:
+
+# Actual elapsed time represents the time of travel which cannot be negative so dropping off all the records having negative actual elapsed time.
+
+# Code
+
+df_new.drop(df_new[(df_new['ActualElapsedTime'] <= 0)].index,inplace=True)
+
+# Resetting the index
+
+df_new=df_new.reset_index(drop=True)
+
+# Test
+
+df_new.query('ActualElapsedTime <=0')
